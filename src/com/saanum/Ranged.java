@@ -1,6 +1,6 @@
 package com.saanum;
 
-public class Ranged {
+public class Ranged implements ICharacter{
     //constructor - her kan vi sette startverdier for klassen
     public Ranged(double health){
         this.m_health = health;
@@ -19,7 +19,7 @@ public class Ranged {
     private double m_health;
     private String m_Name = this.getClass().getSimpleName(); //standard dersom navn ikke settes
 
-    public void Attack(Boss enemy, double dmg){
+    public void Attack(ICharacter enemy, double dmg){
         System.out.println("\t" + this.getClass().getSimpleName() + " attacks " + enemy.getName() + " for " + Double.toString(Math.round(dmg)));
         //pauser 0,5 sek mellom hvert angrep
         try
@@ -33,7 +33,7 @@ public class Ranged {
         enemy.OnAttacked(this, dmg);
     }
 
-    public void OnAttacked(Boss attacker, double dmg){
+    public void OnAttacked(ICharacter attacker, double dmg){
         System.out.println("\t" + attacker.getName() + " attacks " + this.getName() + " for " + Double.toString(Math.round(dmg)));
         this.m_health = this.m_health - dmg;
         System.out.println("\t" + this.getName() + " life is now " + Double.toString( Math.round(this.m_health)));

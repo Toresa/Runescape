@@ -12,12 +12,16 @@ public class Main {
 
 	    Boss agoroth = new Boss( "Agoroth", 300);
 
-
+        double damage;
         //Start
 	    while(agoroth.getHealth()>=0){
-            double damage = new Random().nextDouble() * 50;
+            damage = new Random().nextDouble() * 50;
             warrior.Attack(agoroth, damage);
+
+            damage = new Random().nextDouble() * 50;
             wizard.Attack(agoroth, damage);
+
+            damage = new Random().nextDouble() * 50;
             hunter.Attack(agoroth, damage);
         }
 
